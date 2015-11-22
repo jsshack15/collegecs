@@ -160,11 +160,13 @@ DefaultComboBoxModel modl;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String query;
+        String query;int x;
         DefaultTableModel mod=(DefaultTableModel)jTable1.getModel();
         String str=(String) jComboBox1.getSelectedItem();
         try
-        {
+        { int rows=mod.getRowCount();
+        for(x=1;x<=rows;x++)
+            mod.removeRow(0);
          Class.forName("java.sql.DriverManager");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/ccs","root","abab");
          Statement stmt=(Statement)con.createStatement();
